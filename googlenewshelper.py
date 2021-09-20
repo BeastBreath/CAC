@@ -9,15 +9,13 @@ def getNewsTitles(search_query):
     googlenews.search(search_query)
 
     # Getting result JSON object
-    result = googlenews.result()
+    results = googlenews.result()
 
-    # Getting titles
-    titles = list()
-    for article in result:
-        titles.append(article["media"])
+    # Getting titles and media (Maybe use date and give more recent more credibility)
+    articles = list()
+    for result in results:
+        articles.append({result["title"], result["media"]})
 
-    print("START")
-    print(titles)
-    return titles
+    return articles
 
 getNewsTitles("APPL")
