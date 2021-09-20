@@ -14,8 +14,13 @@ def getNewsTitles(search_query):
     # Getting titles and media (Maybe use date and give more recent more credibility)
     articles = list()
     for result in results:
-        articles.append({result["title"], result["media"]})
+        # articles.append({result["title"], result["media"]})
+        articles.append(result["media"])
+        print(result["link"], end=" ")
+        print(result["media"])
+        if (result["media"]) == '':
+            print ("No media")
 
     return articles
 
-getNewsTitles("APPL")
+print(getNewsTitles("Apple"))
